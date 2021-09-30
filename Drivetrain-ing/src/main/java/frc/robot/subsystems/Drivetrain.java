@@ -25,7 +25,10 @@ public class Drivetrain extends SubsystemBase {
 
   public DifferentialDrive m_drive = new DifferentialDrive(m_leftMotors, m_rightMotors);
   public Drivetrain() {}
-    
+  
+  public void arcadeDrive(double fwd, double rot) {
+    m_drive.arcadeDrive(-fwd * Constants.kDriveSpeed, rot * Constants.kTurnSpeed, true);
+  }
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
