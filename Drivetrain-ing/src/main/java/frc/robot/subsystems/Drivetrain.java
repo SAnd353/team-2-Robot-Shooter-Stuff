@@ -15,7 +15,6 @@ import frc.robot.Constants;
 public class Drivetrain extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
   private WPI_VictorSPX m_leftFrontMotor = new WPI_VictorSPX(Constants.drive_lf);
-  
   private WPI_TalonSRX m_leftBackMotor = new WPI_TalonSRX(Constants.drive_lb);
   public SpeedControllerGroup m_leftMotors = new SpeedControllerGroup(m_leftFrontMotor, m_leftBackMotor);
 
