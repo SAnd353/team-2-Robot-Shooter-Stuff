@@ -21,7 +21,9 @@ public class RobotContainer {
   private final Drivetrain m_Drivetrain = new Drivetrain();
 
   private final ExampleCommand m_autoCommand = new ExampleCommand(m_Drivetrain);
+  private XboxController m_xboxController = new XboxController(0);
 
+  
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
