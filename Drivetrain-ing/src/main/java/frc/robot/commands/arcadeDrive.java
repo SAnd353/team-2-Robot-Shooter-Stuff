@@ -6,14 +6,13 @@ import java.util.function.DoubleSupplier;
 
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-
-
 /**
  * An autonomous command to arcade drive
  * 
- * @author Aadit Gupta
- * @author Raadwan Masum
- * @author Rohan Juneja
+ * @author Dashhhhhhh the Hard Carry
+ * @author some random kid that sits on his computer pretending to know whats
+ *         going on
+ * @author also the other people
  */
 public class arcadeDrive extends CommandBase {
   private final Drivetrain m_drive;
@@ -33,7 +32,7 @@ public class arcadeDrive extends CommandBase {
     addRequirements(m_drive);
   }
 
-@Override
+  @Override
   public void execute() {
     m_drive.arcadeDrive(m_forward.getAsDouble(), m_rotation.getAsDouble());
   }

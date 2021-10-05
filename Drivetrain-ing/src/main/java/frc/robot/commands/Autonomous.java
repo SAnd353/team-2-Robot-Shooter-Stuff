@@ -25,12 +25,20 @@ public class Autonomous extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+    m_timer.reset();
+    m_timer.start();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_drive.arcadeDrive(0.5, 0);
+    double time = m_timer.get();
+    if (time < 1) {
+      m_drive.arcadeDrive(0.5, 0);
+
+    } else {
+      m_drive.stopMotors();
+    }
   }
 
   // Called once the command ends or is interrupted.
