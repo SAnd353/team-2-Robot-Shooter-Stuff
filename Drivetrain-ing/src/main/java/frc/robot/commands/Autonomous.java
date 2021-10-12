@@ -40,18 +40,18 @@ public class Autonomous extends CommandBase {
     } else {
       m_drive.stopMotors();
     }
-    if (time < 1500) {
-      m_drive.arcadeDrive(0 , 1);
+    // if (time < 1500) {
+    //   m_drive.arcadeDrive(0 , 1);
 
-    } else {
-      m_drive.stopMotors();
-    }
-    if (time < 2500) {
-      m_drive.arcadeDrive(0.5 , 0);
+    // } else {
+    //   m_drive.stopMotors();
+    // }
+    // if (time < 2500) {
+    //   m_drive.arcadeDrive(0.5 , 0);
 
-    } else {
-      m_drive.stopMotors();
-    }
+    // } else {
+    //   m_drive.stopMotors();
+    // }
   }
 
   // Called once the command ends or is interrupted.
