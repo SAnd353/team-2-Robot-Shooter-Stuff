@@ -2,7 +2,8 @@
 // Open Source Software; you can modify and/or share it under the terms of
 // the WPILib BSD license file in the root directory of this project.
 // DASH U GENIUS
-// DASH U CARRYING TEAM
+// DASH U CARRY
+// #teamdash
 
 package frc.robot.commands;
 
@@ -35,23 +36,20 @@ public class Autonomous extends CommandBase {
   public void execute() {
     double time = m_timer.get();
     if (time < 1000) {
-      m_drive.arcadeDrive(0.5, 0);
+      m_drive.arcadeDrive(1, 1);
+
+    } else if (time < 2000) {
+      m_drive.arcadeDrive(1, -1);
+
+    } else if (time < 3000) {
+      m_drive.arcadeDrive(1, 1);
+
+    } else if (time < 4000) {
+      m_drive.arcadeDrive(1, -1);
 
     } else {
       m_drive.stopMotors();
     }
-    // if (time < 1500) {
-    //   m_drive.arcadeDrive(0 , 1);
-
-    // } else {
-    //   m_drive.stopMotors();
-    // }
-    // if (time < 2500) {
-    //   m_drive.arcadeDrive(0.5 , 0);
-
-    // } else {
-    //   m_drive.stopMotors();
-    // }
   }
 
   // Called once the command ends or is interrupted.
