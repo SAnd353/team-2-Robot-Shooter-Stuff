@@ -10,6 +10,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj.Timer;
+import frc.robot.Constants;
 
 /** An example command that uses an example subsystem. */
 public class Autonomous extends CommandBase {
@@ -36,16 +37,16 @@ public class Autonomous extends CommandBase {
   public void execute() {
     double time = m_timer.get();
     if (time < 1000) {
-      m_drive.arcadeDrive(1, 1);
+      m_drive.arcadeDrive(Constants.autoSpeed, Constants.autoRotation);
 
     } else if (time < 2000) {
-      m_drive.arcadeDrive(1, -1);
+      m_drive.arcadeDrive(Constants.autoSpeed, -Constants.autoRotation);
 
     } else if (time < 3000) {
-      m_drive.arcadeDrive(1, 1);
+      m_drive.arcadeDrive(Constants.autoSpeed, Constants.autoRotation);
 
     } else if (time < 4000) {
-      m_drive.arcadeDrive(1, -1);
+      m_drive.arcadeDrive(Constants.autoSpeed, -Constants.autoRotation);
 
     } else {
       m_drive.stopMotors();
