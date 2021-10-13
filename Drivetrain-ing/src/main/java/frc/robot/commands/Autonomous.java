@@ -43,10 +43,10 @@ public class Autonomous extends CommandBase {
       m_drive.arcadeDrive(Constants.autoSpeed, -Constants.autoRotation);
 
     } else if (time < 3000) {
-      m_drive.arcadeDrive(Constants.autoSpeed, Constants.autoRotation);
+      m_drive.arcadeDrive(Constants.autoSpeed, -Constants.autoRotation);
 
     } else if (time < 4000) {
-      m_drive.arcadeDrive(Constants.autoSpeed, -Constants.autoRotation);
+      m_drive.arcadeDrive(Constants.autoSpeed, Constants.autoRotation);
 
     } else {
       m_drive.stopMotors();
