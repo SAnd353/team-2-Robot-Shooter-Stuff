@@ -22,5 +22,5 @@ public final class Constants {
     public static final double kTurnSpeed = 1.0;
 
     public static final double autoSpeed = 1.0;
-    public static final double autoRotation = 1.0;
+    public static final double autoRotation = 0.1;
     }
