@@ -38,7 +38,6 @@ public class Drivetrain extends SubsystemBase {
     // This method will be called once per scheduler run during simulation
   }
    public void stopMotors(){
-    m_leftFrontMotor.set(0);
-    m_leftBackMotor.set(0);
+    m_drive.arcadeDrive(0,0);
   }
 }
