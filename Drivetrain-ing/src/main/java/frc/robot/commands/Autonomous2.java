@@ -40,17 +40,32 @@ public class Autonomous2 extends CommandBase {
       m_drive.arcadeDrive(Constants.autoSpeed2, 0);
 
     } else if (time < 3) {
-      m_drive.arcadeDrive(0, );
+      m_drive.arcadeDrive(0, 0.8);
 
-    } else if (time < 3) {
-      m_drive.arcadeDrive(Constants.autoSpeed, -Constants.autoRotation);
+    } else if (time < 7) {
+      m_drive.arcadeDrive(Constants.autoSpeed2, 0);
 
-    } else if (time < 4) {
-      m_drive.arcadeDrive(Constants.autoSpeed, Constants.autoRotation);
+    } else if (time < 8) {
+      m_drive.arcadeDrive(0, -0.8);
 
-    } else {
-      m_drive.stopMotors();
-    }
+    } else if (time < 10) {
+      m_drive.arcadeDrive(Constants.autoSpeed2, -0.8);
+
+    } else if (time < 6) {
+      m_drive.arcadeDrive(0, -0.8);
+
+    } else if (time < 6) {
+      m_drive.arcadeDrive(0, -0.8);
+
+    } else if(time < 6)
+
+  {
+    m_drive.arcadeDrive(0, -0.8);
+
+  }else
+  {
+    m_drive.stopMotors();
+  }
   }
 
   // Called once the command ends or is interrupted.
