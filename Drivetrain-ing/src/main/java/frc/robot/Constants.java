@@ -22,7 +22,7 @@ public final class Constants {
     public static final double kTurnSpeed = 1.0;
 
     public static final double autoSpeed = 0.7;
-    public static final double autoSpeed2 = 0.7;
+    public static final double autoSpeed2 = 0.8;
     public static final double autoRotation = 0.6;
 
     public static final double autoSeconds = 1;
