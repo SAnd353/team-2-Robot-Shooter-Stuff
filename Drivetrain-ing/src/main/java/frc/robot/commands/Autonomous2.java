@@ -36,34 +36,40 @@ public class Autonomous2 extends CommandBase {
   @Override
   public void execute() {
     double time = m_timer.get();
-    if (time < 2) {
+    if (time < 1) {
       m_drive.arcadeDrive(Constants.autoSpeed2, 0);
 
-    } else if (time < 3) {
+    } else if (time < 1.5) {
       m_drive.arcadeDrive(0, 0.8);
 
-    } else if (time < 7) {
+    } else if (time < 3.5) {
       m_drive.arcadeDrive(Constants.autoSpeed2, 0);
 
-    } else if (time < 8) {
+    } else if (time < 4) {
       m_drive.arcadeDrive(0, -0.8);
+
+    } else if (time < 5) {
+      m_drive.arcadeDrive(Constants.autoSpeed2, 0);
+
+    } else if (time < 5.5) {
+      m_drive.arcadeDrive(0, -0.8);
+
+    } else if (time < 6.5) {
+      m_drive.arcadeDrive(Constants.autoSpeed2, 0);
+
+    } else if (time < 7) {
+      m_drive.arcadeDrive(0, -0.8);
+
+    } else if (time < 9) {
+      m_drive.arcadeDrive(Constants.autoSpeed2, 0);
+
+    } else if (time < 9.5) {
+      m_drive.arcadeDrive(0, 0.8);
 
     } else if (time < 10) {
-      m_drive.arcadeDrive(Constants.autoSpeed2, -0.8);
+      m_drive.arcadeDrive(Constants.autoSpeed2, 0);
 
-    } else if (time < 6) {
-      m_drive.arcadeDrive(0, -0.8);
-
-    } else if (time < 6) {
-      m_drive.arcadeDrive(0, -0.8);
-
-    } else if(time < 6)
-
-  {
-    m_drive.arcadeDrive(0, -0.8);
-
-  }else
-  {
+    }else{
     m_drive.stopMotors();
   }
   }
