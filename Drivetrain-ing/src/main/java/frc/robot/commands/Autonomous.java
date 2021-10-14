@@ -36,16 +36,16 @@ public class Autonomous extends CommandBase {
   @Override
   public void execute() {
     double time = m_timer.get();
-    if (time < 1) {
+    if (time < 2) {
       m_drive.arcadeDrive(Constants.autoSpeed, Constants.autoRotation);
 
-    } else if (time < 2) {
-      m_drive.arcadeDrive(Constants.autoSpeed, -Constants.autoRotation);
-
-    } else if (time < 3) {
-      m_drive.arcadeDrive(Constants.autoSpeed, -Constants.autoRotation);
-
     } else if (time < 4) {
+      m_drive.arcadeDrive(Constants.autoSpeed, -Constants.autoRotation);
+
+    } else if (time < 6) {
+      m_drive.arcadeDrive(Constants.autoSpeed, -Constants.autoRotation);
+
+    } else if (time < 8) {
       m_drive.arcadeDrive(Constants.autoSpeed, Constants.autoRotation);
 
     } else {
