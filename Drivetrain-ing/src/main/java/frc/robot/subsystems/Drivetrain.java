@@ -26,7 +26,7 @@ public class Drivetrain extends SubsystemBase {
   public Drivetrain() {}
   
   public void arcadeDrive(double fwd, double rot) {
-    m_drive.arcadeDrive(-fwd * Constants.kDriveSpeed, rot * Constants.kTurnSpeed, true);
+    m_drive.arcadeDrive(fwd * Constants.kDriveSpeed, -rot * Constants.kTurnSpeed, true);
   }
   @Override
   public void periodic() {
