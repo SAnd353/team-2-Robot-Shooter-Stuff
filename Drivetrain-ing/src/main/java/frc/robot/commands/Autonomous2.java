@@ -36,11 +36,11 @@ public class Autonomous2 extends CommandBase {
   @Override
   public void execute() {
     double time = m_timer.get();
-    if (time < 1) {
-      m_drive.arcadeDrive(Constants.autoSpeed, Constants.autoRotation);
+    if (time < 2) {
+      m_drive.arcadeDrive(Constants.autoSpeed2, 0);
 
-    } else if (time < 2) {
-      m_drive.arcadeDrive(Constants.autoSpeed, -Constants.autoRotation);
+    } else if (time < 3) {
+      m_drive.arcadeDrive(0, );
 
     } else if (time < 3) {
       m_drive.arcadeDrive(Constants.autoSpeed, -Constants.autoRotation);
