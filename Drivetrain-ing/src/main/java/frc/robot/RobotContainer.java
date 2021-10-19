@@ -13,6 +13,7 @@ import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.Autonomous;
+import frc.robot.commands.Autonomous2;
 
 /**
  * This class is where the bulk of the robot should be declared. Since
@@ -25,7 +26,7 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final Drivetrain m_Drivetrain = new Drivetrain();
 
-  private final Command m_autoCommand = new Autonomous(m_Drivetrain);
+  private final Command m_autoCommand = new Autonomous2(m_Drivetrain);
   private XboxController m_xboxController = new XboxController(0);
   public JoystickButton m_aButton = new JoystickButton(m_xboxController, Button.kA.value);
 
