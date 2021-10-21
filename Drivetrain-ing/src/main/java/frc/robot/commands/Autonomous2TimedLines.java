@@ -18,7 +18,7 @@ public class Autonomous2TimedLines extends CommandBase {
   private final Timer m_timer = new Timer();
   private final Drivetrain m_drive;
 
-  public Autonomous2(Drivetrain drivetrain) {
+  public Autonomous2TimedLines(Drivetrain drivetrain) {
     m_drive = drivetrain;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(m_drive);
