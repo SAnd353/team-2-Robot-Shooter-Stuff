@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.Timer;
 import frc.robot.Constants;
 
 /** An example command that uses an example subsystem. */
-public class Autonomous2 extends CommandBase {
+public class Autonomous2TimedLines extends CommandBase {
 
   private final Timer m_timer = new Timer();
   private final Drivetrain m_drive;
