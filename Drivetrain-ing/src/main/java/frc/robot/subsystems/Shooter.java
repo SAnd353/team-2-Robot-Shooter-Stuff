@@ -27,7 +27,7 @@ public Shooter(){
 
     stop();
 
-    kP = 0.004; 
+    kP = 0.35; 
     kI = 0;
     kD = 0; 
     kIz = 0; 
@@ -52,7 +52,7 @@ public Shooter(){
 
 public void set(double current, double target) {
     m_motor.set(m_pidController.calculate(current, target) * 0.004);
-    System.out.println(m_pidController.calculate(current, target) * 0.004);
+    // System.out.println(m_pidController.calculate(current, target) * 0.004);
   }
 
 public void stop(){
