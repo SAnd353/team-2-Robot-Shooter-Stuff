@@ -29,7 +29,7 @@ public class ShooterCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-  m_shooter.set(m_controllerInput.getAsDouble() * 5700, 1000);
+  m_shooter.set(m_controllerInput.getAsDouble() * 5700, 3000);
   }
 
   // Called once the command ends or is interrupted.
