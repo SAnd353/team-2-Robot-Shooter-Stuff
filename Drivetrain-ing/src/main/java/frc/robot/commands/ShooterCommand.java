@@ -13,6 +13,8 @@ public class ShooterCommand extends CommandBase {
 
   private final Shooter m_shooter;
   private final DoubleSupplier m_controllerInput;
+  private XboxController m_xboxController = new XboxController(0);
+
 
   public ShooterCommand(Shooter shooter, DoubleSupplier controllerInput){
     m_shooter = shooter;
@@ -29,7 +31,7 @@ public class ShooterCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-  m_shooter.set(m_controllerInput.getAsDouble() * 5700, 3000);
+  m_shooter.set(m_controllerInput.getAsDouble() * 5500, 3000);
   }
 
   // Called once the command ends or is interrupted.
