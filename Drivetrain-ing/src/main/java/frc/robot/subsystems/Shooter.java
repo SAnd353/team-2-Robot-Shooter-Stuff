@@ -12,12 +12,17 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.ControlType;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import frc.robot.Constants;
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
 
 public class Shooter extends SubsystemBase {
     private CANSparkMax m_motor;
     private CANEncoder m_encoder;
     private CANPIDController m_controller;
     private PIDController m_pidController;
+    
+    private WPI_TalonSRX m_belt_f = new WPI_TalonSRX(Constants.CAN.shooter_belt_front);
+    private VictorSPX m_belt_b = new VictorSPX(Constants.CAN.shooter_belt_back);
 
    
 public Shooter(){
@@ -51,4 +56,27 @@ public void set(double current, double target) {
 public void stop(){
     m_motor.stopMotor();
 }
-}
+
+ /**
+   * Run belt up
+   */
+  public void beltUp() {
+    m_belt_f.set(Constants.PID.maxRPM, Constants.kBeltSpeed);
+    m_belt_b.set(Constants.PID.maxRPM, Constants.kBeltSpeed);
+  }
+  
+  /**
+   * Run belt down
+   */
+  public void beltDown() {
+    m_belt_f.set(Constants.PID.maxRPM, -Constants.kBeltSpeed);
+    m_belt_b.set(Constants.PID.maxRPM, -Constants.kBeltSpeed);
+  }
+
+  /**
+   * Stop belt
+   */
+  public void beltStop() {
+    m_belt_f.set(Constants.PID.maxRPM, 0);
+    m_belt_b.set(Constants.PID.maxRPM, 0);
+  }

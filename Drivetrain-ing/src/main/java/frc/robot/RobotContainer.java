@@ -41,8 +41,12 @@ public class RobotContainer {
     configureButtonBindings();
 
     // drivetrain controller bindings
-    m_Drivetrain.setDefaultCommand(new arcadeDrive(m_Drivetrain, () -> m_xboxController.getY(Hand.kLeft),
-        () -> m_xboxController.getX(Hand.kRight)));
+
+    // m_Drivetrain.setDefaultCommand(new arcadeDrive(m_Drivetrain, () -> m_xboxController.getY(Hand.kLeft),
+    //     () -> m_xboxController.getX(Hand.kRight)));
+
+    // shooter controller bindings
+    m_shooter.setDefaultCommand(new ShooterJoystick(m_shooter, () -> m_xboxController.getY(Hand.kRight)));
   }
 
   /**

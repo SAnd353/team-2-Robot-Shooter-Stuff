@@ -24,10 +24,17 @@ public final class Constants {
         public static double kMinOutput = -1;
         public static double maxRPM = 5700;
     }
-    public static final int drive_lf = 24;
-    public static final int drive_lb = 13;
-    public static final int drive_rf = 23;
-    public static final int drive_rb = 15;
+
+    public static final class CAN{
+        public static final int drive_lf = 24;
+        public static final int drive_lb = 13;
+        public static final int drive_rf = 23;
+        public static final int drive_rb = 15;
+
+        public static final int shooter_belt_front = 11;
+        public static final int shooter_belt_back = 20;
+    }
+    public static final double kBeltSpeed = 0.8;
 
     public static final double kDriveSpeed = 1.0;
     public static final double kTurnSpeed = 1.0;
