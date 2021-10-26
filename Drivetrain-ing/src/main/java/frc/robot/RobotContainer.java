@@ -14,6 +14,8 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.AutonomousTimedCircle;
 import frc.robot.commands.Autonomous2TimedLines;
+import frc.robot.subsystems.*;
+import frc.robot.commands.*;
 
 /**
  * This class is where the bulk of the robot should be declared. Since
@@ -29,6 +31,7 @@ public class RobotContainer {
   private final Command m_autoCommand = new Autonomous2TimedLines(m_Drivetrain);
   private XboxController m_xboxController = new XboxController(0);
   public JoystickButton m_aButton = new JoystickButton(m_xboxController, Button.kA.value);
+  private final Shooter m_shooter = new Shooter();
 
   /**
    * The container for the robot. Contains subsystems, OI devices, and commands.
@@ -49,6 +52,11 @@ public class RobotContainer {
    * passing it to a {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
+    new JoystickButton(m_xboxController, Button.kA.value).toggleWhenPressed(new
+    ShooterCommand(m_shooter), true);
+    new JoystickButton(m_xboxController, Button.kA.value).whenPressed(new
+    ShooterCommand(m_shooter), true)
+    .whenReleased(new ShootStop(m_shooter), true);
   }
 
   /**
