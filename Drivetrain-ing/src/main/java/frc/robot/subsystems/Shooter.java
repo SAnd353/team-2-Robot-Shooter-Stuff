@@ -11,6 +11,7 @@ import com.revrobotics.CANPIDController;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.ControlType;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import frc.robot.Constants;
 
 public class Shooter extends SubsystemBase {
     private CANSparkMax m_motor;
@@ -28,14 +29,14 @@ public Shooter(){
     stop();
 
 
-    m_pidController = new PIDController(kP, kI, kD);
+    m_pidController = new PIDController(Constants.PID.kP, Constants.PID.kI, Constants.PID.kD);
   
-    m_controller.setP(kP);
-    m_controller.setI(kI);
-    m_controller.setD(kD);
-    m_controller.setIZone(kIz);
-    m_controller.setFF(kFF);
-    m_controller.setOutputRange(kMinOutput, kMaxOutput);
+    m_controller.setP(Constants.PID.kP);
+    m_controller.setI(Constants.PID.kI);
+    m_controller.setD(Constants.PID.kD);
+    m_controller.setIZone(Constants.PID.kIz);
+    m_controller.setFF(Constants.PID.kFF);
+    m_controller.setOutputRange(Constants.PID.kMinOutput, Constants.PID.kMaxOutput);
 }
 
 

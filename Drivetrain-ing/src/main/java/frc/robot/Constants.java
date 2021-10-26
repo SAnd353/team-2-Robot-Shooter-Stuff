@@ -13,16 +13,16 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
-    public final class PID{
-        
-        kP = 0.35; 
-        kI = 0;
-        kD = 0; 
-        kIz = 0; 
-        kFF = 0.000015; 
-        kMaxOutput = 1; 
-        kMinOutput = -1;
-        maxRPM = 5700;
+    public static final class PID{
+
+        public static double kP = 0.35; 
+        public static double kI = 0;
+        public static double kD = 0; 
+        public static double kIz = 0; 
+        public static double kFF = 0.000015; 
+        public static double kMaxOutput = 1; 
+        public static double kMinOutput = -1;
+        public static double maxRPM = 5700;
     }
     public static final int drive_lf = 24;
     public static final int drive_lb = 13;
