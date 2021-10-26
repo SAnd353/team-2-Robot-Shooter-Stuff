@@ -8,7 +8,14 @@ import frc.robot.subsystems.Shooter;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import java.util.function.DoubleSupplier;
 import frc.robot.Constants;
-
+import edu.wpi.first.wpilibj.GenericHID;
+import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.GenericHID.Hand;
+import edu.wpi.first.wpilibj.XboxController.Button;
+import frc.robot.commands.arcadeDrive;
+import frc.robot.subsystems.Drivetrain;
+import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 public class ShooterCommand extends CommandBase {
 
   private final Shooter m_shooter;
@@ -31,7 +38,7 @@ public class ShooterCommand extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-  m_shooter.set(m_xboxController.getY(hand.kLeft) * 5500, 3000);
+  m_shooter.set(m_xboxController.getY(Hand.kLeft) * 5500, 3000);
   }
 
   // Called once the command ends or is interrupted.
