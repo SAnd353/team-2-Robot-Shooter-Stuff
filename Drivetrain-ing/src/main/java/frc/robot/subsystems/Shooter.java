@@ -17,7 +17,7 @@ public class Shooter extends SubsystemBase {
     private CANEncoder m_encoder;
     private CANPIDController m_controller;
     private PIDController m_pidController;
-    public double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput, maxRPM;
+
    
 public Shooter(){
     m_motor = new CANSparkMax(10, MotorType.kBrushless);
@@ -27,14 +27,6 @@ public Shooter(){
 
     stop();
 
-    kP = 0.35; 
-    kI = 0;
-    kD = 0; 
-    kIz = 0; 
-    kFF = 0.000015; 
-    kMaxOutput = 1; 
-    kMinOutput = -1;
-    maxRPM = 5700;
 
     m_pidController = new PIDController(kP, kI, kD);
   
