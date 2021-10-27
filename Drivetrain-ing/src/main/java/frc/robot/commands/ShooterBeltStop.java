@@ -14,9 +14,9 @@ public class ShooterBeltStop extends CommandBase {
   @SuppressWarnings({ "PMD.UnusedPrivateField", "PMD.SingularField" })
   private final Shooter m_shooter;
 
-  public ShooterBeltStop(Shooter subsystem) {
-    m_shooter = subsystem;
-    addRequirements(subsystem);
+  public ShooterBeltStop(Shooter shooter) {
+    m_shooter = shooter;
+    addRequirements(shooter);
   }
 
   @Override

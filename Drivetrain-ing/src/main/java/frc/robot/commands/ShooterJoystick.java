@@ -33,7 +33,7 @@ public class ShooterJoystick extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_shooter.set(m_shooter.getEncoderValue(), m_speed.getAsDouble());
+    m_shooter.set(m_shooter.getEncoderValue(), m_speed.getAsDouble() * 5500);
   }
 
   // Called once the command ends or is interrupted.
