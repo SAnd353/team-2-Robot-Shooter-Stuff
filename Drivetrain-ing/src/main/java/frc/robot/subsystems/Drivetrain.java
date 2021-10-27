@@ -40,4 +40,8 @@ public class Drivetrain extends SubsystemBase {
    public void stopMotors(){
     m_drive.arcadeDrive(0,0);
   }
+
+  public void goDistance (double target) {
+  
+  }
 }
