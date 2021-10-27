@@ -4,12 +4,9 @@
 
 package frc.robot.commands;
 
-import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.commands.*;
 import frc.robot.subsystems.*;
 import java.util.function.DoubleSupplier;
-import frc.robot.Constants;
 
 /** An example command that uses an example subsystem. */
 public class ShooterJoystick extends CommandBase {
@@ -36,7 +33,7 @@ public class ShooterJoystick extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_shooter.set(Constants.PID.maxRPM, m_speed.getAsDouble());
+    m_shooter.set(m_shooter.getEncoderValue(), m_speed.getAsDouble());
   }
 
   // Called once the command ends or is interrupted.

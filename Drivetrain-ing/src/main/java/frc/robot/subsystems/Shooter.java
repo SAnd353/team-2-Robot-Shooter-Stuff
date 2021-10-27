@@ -2,7 +2,6 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.controller.PIDController;
 import com.revrobotics.CANEncoder;
 import com.revrobotics.CANPIDController;
@@ -42,9 +41,9 @@ public Shooter(){
     m_controller.setOutputRange(Constants.PID.kMinOutput, Constants.PID.kMaxOutput);
 }
 
-
-
-
+public double getEncoderValue() {
+    return m_encoder.getVelocity();
+  }
 
 public void set(double current, double target) {
     m_motor.set(m_pidController.calculate(current, target) * 0.004);
