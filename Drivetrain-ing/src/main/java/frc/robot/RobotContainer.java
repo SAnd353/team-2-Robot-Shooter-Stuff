@@ -41,8 +41,8 @@ public class RobotContainer {
 
     // drivetrain controller bindings
 
-    // m_Drivetrain.setDefaultCommand(new arcadeDrive(m_Drivetrain, () -> m_xboxController.getY(Hand.kLeft),
-    //     () -> m_xboxController.getX(Hand.kRight)));
+    m_Drivetrain.setDefaultCommand(new arcadeDrive(m_Drivetrain, () -> m_xboxController.getY(Hand.kLeft),
+        () -> m_xboxController.getX(Hand.kRight)));
 
     // shooter controller bindings
     // m_shooter.setDefaultCommand(new ShooterJoystick(m_shooter, () -> m_xboxController.getY(Hand.kRight)));
@@ -55,10 +55,9 @@ public class RobotContainer {
    * passing it to a {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    new JoystickButton(m_xboxController, Button.kA.value).toggleWhenPressed(new ShooterCommand(m_shooter), true);
     new JoystickButton(m_xboxController, Button.kA.value).whenPressed(new ShooterCommand(m_shooter), true) .whenReleased(new ShootStop(m_shooter), true);
 
-    new JoystickButton(m_xboxController, Button.kBumperLeft.value).whenPressed(new ShooterBeltUp(m_shooter), true)
+    new JoystickButton(m_xboxController, Button.kB.value).whenPressed(new ShooterBeltUp(m_shooter), true)
     .whenReleased(new ShooterBeltStop(m_shooter), true);
 
     new JoystickButton(m_xboxController, Button.kY.value).whenPressed(new ShooterBeltDown(m_shooter), true)
