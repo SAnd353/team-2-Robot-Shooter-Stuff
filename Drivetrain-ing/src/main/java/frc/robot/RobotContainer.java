@@ -45,7 +45,7 @@ public class RobotContainer {
     //     () -> m_xboxController.getX(Hand.kRight)));
 
     // shooter controller bindings
-    m_shooter.setDefaultCommand(new ShooterJoystick(m_shooter, () -> m_xboxController.getY(Hand.kRight)));
+    // m_shooter.setDefaultCommand(new ShooterJoystick(m_shooter, () -> m_xboxController.getY(Hand.kRight)));
   }
 
   /**
@@ -57,6 +57,12 @@ public class RobotContainer {
   private void configureButtonBindings() {
     new JoystickButton(m_xboxController, Button.kA.value).toggleWhenPressed(new ShooterCommand(m_shooter), true);
     new JoystickButton(m_xboxController, Button.kA.value).whenPressed(new ShooterCommand(m_shooter), true) .whenReleased(new ShootStop(m_shooter), true);
+
+    new JoystickButton(m_xboxController, Button.kBumperLeft.value).whenPressed(new ShooterBeltUp(m_shooter), true)
+    .whenReleased(new ShooterBeltStop(m_shooter), true);
+
+    new JoystickButton(m_xboxController, Button.kY.value).whenPressed(new ShooterBeltDown(m_shooter), true)
+        .whenReleased(new ShooterBeltStop(m_shooter), true);
   }
 
   /**

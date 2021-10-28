@@ -15,7 +15,7 @@ package frc.robot;
 public final class Constants {
     public static final class PID{
 
-        public static double kP = 0.35; 
+        public static double kP = 0.09; 
         public static double kI = 0;
         public static double kD = 0; 
         public static double kIz = 0; 
@@ -34,7 +34,7 @@ public final class Constants {
         public static final int shooter_belt_front = 11;
         public static final int shooter_belt_back = 20;
     }
-    public static final double kBeltSpeed = 0.8;
+    public static final double kBeltSpeed = 0.4;
 
     public static final double kDriveSpeed = 1.0;
     public static final double kTurnSpeed = 1.0;

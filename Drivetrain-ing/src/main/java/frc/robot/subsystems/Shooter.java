@@ -27,6 +27,7 @@ public Shooter(){
     m_encoder = m_motor.getEncoder();
     m_controller = m_motor.getPIDController();
     m_motor.restoreFactoryDefaults();
+    m_motor.setInverted(true);
 
     stop();
 
@@ -59,7 +60,7 @@ public void stop(){
    */
   public void beltUp() {
     m_belt_f.set(ControlMode.PercentOutput, Constants.kBeltSpeed);
-    m_belt_b.set(ControlMode.PercentOutput, Constants.kBeltSpeed);
+    m_belt_b.set(ControlMode.PercentOutput, -Constants.kBeltSpeed);
   }
   
   /**
