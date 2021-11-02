@@ -27,7 +27,7 @@ public class RobotContainer {
   // The robot's subsystems and commands are defined here...
   private final Drivetrain m_Drivetrain = new Drivetrain();
 
-  private final Command m_autoCommand = new Autonomous2TimedLines(m_Drivetrain);
+  private final Command m_autoCommand = new AutoPID(m_Drivetrain);
   private XboxController m_xboxController = new XboxController(0);
   public JoystickButton m_aButton = new JoystickButton(m_xboxController, Button.kA.value);
   private final Shooter m_shooter = new Shooter();
