@@ -34,6 +34,8 @@ public class Drivetrain extends SubsystemBase {
   
   public Drivetrain() {
     m_encoder.setDistancePerPulse(2 * Math.PI * 0.0762 / -2048);
+    m_leftBackMotor.setInverted(true);
+    m_leftFrontMotor.setInverted(true);
   }
   
   public void arcadeDrive(double fwd, double rot) {
@@ -51,11 +53,12 @@ public class Drivetrain extends SubsystemBase {
    public void stopMotors(){
     m_drive.arcadeDrive(0,0);
   }
+
   public void set(double current, double target) {
-    m_leftFrontMotor.set(m_pidController.calculate(current, target) * 0.004);
-    m_rightFrontMotor.set(m_pidController.calculate(current, target) * 0.004);
-    m_leftBackMotor.set(m_pidController.calculate(current, target) * 0.004);
-    m_rightBackMotor.set(m_pidController.calculate(current, target) * 0.004);
+    m_leftFrontMotor.set(m_pidController.calculate(current, target) * 0.1);
+    m_rightFrontMotor.set(m_pidController.calculate(current, target) * 0.1);
+    m_leftBackMotor.set(m_pidController.calculate(current, target) * 0.1);
+    m_rightBackMotor.set(m_pidController.calculate(current, target) * 0.1);
 
   }
 
