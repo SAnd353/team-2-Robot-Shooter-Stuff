@@ -5,11 +5,13 @@
 package frc.robot.commands;
 
 import frc.robot.subsystems.Drivetrain;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 public class AutoPID extends CommandBase {
 
   private final Drivetrain m_drive;
+  private final Timer m_timer = new Timer();
 
 
   public AutoPID(Drivetrain drivetrain) {
@@ -20,11 +22,15 @@ public class AutoPID extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
+    m_timer.reset();
+    m_timer.start();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    double t = m_timer.get();
+    if ()
     m_drive.set(m_drive.getEncoderValue(), 2000);
   }
 
