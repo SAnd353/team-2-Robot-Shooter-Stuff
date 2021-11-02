@@ -29,8 +29,8 @@ public class AutoPID extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    double t = m_timer.get();
-    if ()
+    double time = m_timer.get();
+    if (time < 1)
     m_drive.set(m_drive.getEncoderValue(), 2000);
   }
 
