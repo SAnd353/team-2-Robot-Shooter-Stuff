@@ -8,6 +8,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
+import edu.wpi.first.wpilibj.controller.PIDController;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
@@ -23,6 +24,8 @@ public class Drivetrain extends SubsystemBase {
   public SpeedControllerGroup m_rightMotors = new SpeedControllerGroup(m_rightFrontMotor, m_rightBackMotor);
 
   public DifferentialDrive m_drive = new DifferentialDrive(m_leftMotors, m_rightMotors);
+
+  public PIDController m_pidController = new PIDController(0.09, 0, 0);
   public Drivetrain() {}
   
   public void arcadeDrive(double fwd, double rot) {
@@ -40,7 +43,13 @@ public class Drivetrain extends SubsystemBase {
    public void stopMotors(){
     m_drive.arcadeDrive(0,0);
   }
+  public void set(double current, double target) {
+    m_leftFrontMotor.set(m_pidController.calculate(current, target) * 0.004);
+    m_rightFrontMotor.set(m_pidController.calculate(current, target) * 0.004);
+    m_leftBackMotor.set(m_pidController.calculate(current, target) * 0.004);
+    m_rightBackMotor.set(m_pidController.calculate(current, target) * 0.004);
 
+  }
   public void goDistance (double target) {
     
   }
