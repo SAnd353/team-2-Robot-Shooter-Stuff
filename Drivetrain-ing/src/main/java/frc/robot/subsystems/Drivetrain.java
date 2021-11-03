@@ -29,11 +29,11 @@ public class Drivetrain extends SubsystemBase {
 
   public PIDController m_pidController = new PIDController(0.09, 0, 0);
 
-  public final Encoder m_encoder = new Encoder(0, 1);
+  public final Encoder m_leftEncoder = new Encoder(0,1);
 
   
   public Drivetrain() {
-    m_encoder.setDistancePerPulse(2 * Math.PI * 0.0762 / -2048);
+    m_leftEncoder.setDistancePerPulse(2 * Math.PI * 0.0762 / -2048);
     // m_leftBackMotor.setInverted(true);
     // m_leftFrontMotor.setInverted(true);
   }
@@ -62,8 +62,12 @@ public class Drivetrain extends SubsystemBase {
 
   }
 
+  public double distance(){
+    return m_leftEncoder.getDistance();
+  }
+
   public double getEncoderValue() {
-    return m_encoder.getRate();
+    return m_leftEncoder.getRate();
   }
 
   public void goDistance (double target) {
