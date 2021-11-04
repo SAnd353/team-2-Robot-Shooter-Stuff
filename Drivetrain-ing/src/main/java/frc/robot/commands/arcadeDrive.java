@@ -35,6 +35,6 @@ public class arcadeDrive extends CommandBase {
   @Override
   public void execute() {
     m_drive.arcadeDrive(m_forward.getAsDouble(), m_rotation.getAsDouble());
-    System.out.prtintln(m_drive.distance());
+    System.out.println(m_drive.distance());
   }
 }
