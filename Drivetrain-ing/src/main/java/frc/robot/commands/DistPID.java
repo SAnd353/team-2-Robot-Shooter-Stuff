@@ -25,7 +25,7 @@ public class DistPID extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    if (m_drive.distance() < 1)
+    if (m_drive.distance() < 20)
     m_drive.set(m_drive.getEncoderValue(), 2000);
   }
 
