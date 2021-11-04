@@ -59,7 +59,13 @@ public class Drivetrain extends SubsystemBase {
     m_rightFrontMotor.set(m_pidController.calculate(current, target) * 0.1);
     m_leftBackMotor.set(m_pidController.calculate(current, target) * -0.1);
     m_rightBackMotor.set(m_pidController.calculate(current, target) * 0.1);
+  }
 
+  public void setDistance(double current, double target) {
+    m_leftFrontMotor.set(m_pidController.calculate(current, target) * -0.1);
+    m_rightFrontMotor.set(m_pidController.calculate(current, target) * 0.1);
+    m_leftBackMotor.set(m_pidController.calculate(current, target) * -0.1);
+    m_rightBackMotor.set(m_pidController.calculate(current, target) * 0.1);
   }
 
   public double distance(){
