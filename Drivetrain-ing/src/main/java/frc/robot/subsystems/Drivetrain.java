@@ -33,7 +33,8 @@ public class Drivetrain extends SubsystemBase {
 
   
   public Drivetrain() {
-    m_leftEncoder.setDistancePerPulse(2 * Math.PI * 0.0762 / -2048);
+    m_leftEncoder.setDistancePerPulse(2 * Math.PI * 7.62 / -2048);
+    m_leftEncoder.reset();
     // m_leftBackMotor.setInverted(true);
     // m_leftFrontMotor.setInverted(true);
   }
@@ -62,17 +63,21 @@ public class Drivetrain extends SubsystemBase {
   }
 
   public void setDistance(double current, double target) {
-    m_leftFrontMotor.set(m_pidController.calculate(current, target) * -0.1);
-    m_rightFrontMotor.set(m_pidController.calculate(current, target) * 0.1);
-    m_leftBackMotor.set(m_pidController.calculate(current, target) * -0.1);
-    m_rightBackMotor.set(m_pidController.calculate(current, target) * 0.1);
+    m_leftFrontMotor.set(m_pidController.calculate(current, target) * -0.5);
+    m_rightFrontMotor.set(m_pidController.calculate(current, target) * 0.5);
+    m_leftBackMotor.set(m_pidController.calculate(current, target) * -0.5);
+    m_rightBackMotor.set(m_pidController.calculate(current, target) * 0.5);
   }
 
   public double distance(){
+    if(m_leftEncoder.getDistance() != 0 || m_leftEncoder.getRate() != 0)
+    System.out.println(m_leftEncoder.getDistance()*100 + " " + m_leftEncoder.getRate()*100);
     return m_leftEncoder.getDistance();
+    
   }
 
   public double getEncoderValue() {
+    // System.out.println(m_leftEncoder.getRate());
     return m_leftEncoder.getRate();
   }
 

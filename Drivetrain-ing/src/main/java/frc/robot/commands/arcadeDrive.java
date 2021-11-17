@@ -36,5 +36,6 @@ public class arcadeDrive extends CommandBase {
   public void execute() {
     m_drive.arcadeDrive(m_forward.getAsDouble(), m_rotation.getAsDouble());
     System.out.println(m_drive.distance());
+    m_drive.getEncoderValue();
   }
 }
