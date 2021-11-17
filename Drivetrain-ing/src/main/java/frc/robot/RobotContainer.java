@@ -23,9 +23,9 @@ import frc.robot.commands.*;
  */
 public class RobotContainer {
   // The robot's subsystems and commands are defined here...
-  private final Drivetrain m_Drivetrain = new Drivetrain();
+  private final Drivetrain m_drive = new Drivetrain();
 
-  private final Command m_autoCommand = new DistPID(m_Drivetrain);
+  private final Command m_autoCommand = new DistPID(m_drive);
   private XboxController m_xboxController = new XboxController(0);
   public JoystickButton m_aButton = new JoystickButton(m_xboxController, Button.kA.value);
   private final Shooter m_shooter = new Shooter();
@@ -39,7 +39,7 @@ public class RobotContainer {
 
     // drivetrain controller bindings
 
-    m_Drivetrain.setDefaultCommand(new arcadeDrive(m_Drivetrain, () -> m_xboxController.getY(Hand.kLeft),
+    m_drive.setDefaultCommand(new arcadeDrive(m_drive, () -> m_xboxController.getY(Hand.kLeft),
         () -> m_xboxController.getX(Hand.kRight)));
 
     // shooter controller bindings
@@ -60,6 +60,8 @@ public class RobotContainer {
 
     new JoystickButton(m_xboxController, Button.kY.value).whenPressed(new ShooterBeltDown(m_shooter), true)
         .whenReleased(new ShooterBeltStop(m_shooter), true);
+
+    new JoystickButton(m_xboxController, Button.kX.value).whenPressed(new LimelightAlign(m_drive), true);
   }
 
   /**

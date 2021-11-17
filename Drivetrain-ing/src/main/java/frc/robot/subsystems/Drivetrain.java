@@ -48,6 +48,9 @@ public class Drivetrain extends SubsystemBase {
   public void arcadeDrive(double fwd, double rot) {
     m_drive.arcadeDrive(fwd * Constants.kDriveSpeed, -rot * Constants.kTurnSpeed, true);
   }
+  public void tankDrive(double leftSpeed, double rightSpeed){
+    m_drive.tankDrive(leftSpeed, rightSpeed);
+  }
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
@@ -86,10 +89,11 @@ public class Drivetrain extends SubsystemBase {
     // System.out.println(m_leftEncoder.getRate());
     return m_leftEncoder.getRate();
   }
-
-  public void limelightDrive(){
-    double x = tx.getDouble(0.0) * 0.1;
-
-    arcadeDrive(0, x);
+  public PIDController m_VpidController = new PIDController(0.7, 0, 0);
+  public void VisionAlign(){
+    double x = tx.getDouble(0.0);
+    double rotation = m_VpidController.calculate(x, 0);
+    // tankDrive(rotation, -rotation);
+    arcadeDrive(0, rotation);
   }
 }

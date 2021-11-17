@@ -8,8 +8,7 @@ import frc.robot.subsystems.Drivetrain;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
-public class LimelightMove extends CommandBase {
-  @SuppressWarnings({ "PMD.UnusedPrivateField", "PMD.SingularField" })
+public class LimelightAlign extends CommandBase {
   private final Drivetrain m_drive;
 
   /**
@@ -17,7 +16,7 @@ public class LimelightMove extends CommandBase {
    *
    * @param subsystem The subsystem used by this command.
    */
-  public LimelightMove(Drivetrain drivetrain) {
+  public LimelightAlign(Drivetrain drivetrain) {
     m_drive = drivetrain;
     // Use addRequirements() here to declare subsystem dependencies.
     addRequirements(drivetrain);
@@ -31,6 +30,7 @@ public class LimelightMove extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    m_drive.VisionAlign();
   }
 
   // Called once the command ends or is interrupted.
