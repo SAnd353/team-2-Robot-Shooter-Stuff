@@ -8,6 +8,9 @@ package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
+import edu.wpi.first.networktables.NetworkTable;
+import edu.wpi.first.networktables.NetworkTableEntry;
+import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.controller.PIDController;
@@ -30,6 +33,9 @@ public class Drivetrain extends SubsystemBase {
   public PIDController m_pidController = new PIDController(0.09, 0, 0);
 
   public final Encoder m_leftEncoder = new Encoder(0,1);
+
+  private NetworkTable m_table = NetworkTableInstance.getDefault().getTable("limelight");
+  public NetworkTableEntry tx = m_table.getEntry("tx");
 
   
   public Drivetrain() {
