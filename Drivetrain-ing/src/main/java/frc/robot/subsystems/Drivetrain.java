@@ -87,7 +87,9 @@ public class Drivetrain extends SubsystemBase {
     return m_leftEncoder.getRate();
   }
 
-  public void goDistance (double target) {
-    
+  public void limelightDrive(){
+    double x = tx.getDouble(0.0) * 0.1;
+
+    arcadeDrive(0, x);
   }
 }
