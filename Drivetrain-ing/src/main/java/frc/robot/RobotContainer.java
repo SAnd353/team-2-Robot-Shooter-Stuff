@@ -61,7 +61,8 @@ public class RobotContainer {
     new JoystickButton(m_xboxController, Button.kY.value).whenPressed(new ShooterBeltDown(m_shooter), true)
         .whenReleased(new ShooterBeltStop(m_shooter), true);
 
-    new JoystickButton(m_xboxController, Button.kX.value).whenPressed(new LimelightAlign(m_drive), true);
+    new JoystickButton(m_xboxController, Button.kX.value).whenPressed(new LimelightAlign(m_drive), true)
+      .whenReleased(new LimelightStop(m_drive), true);
   }
 
   /**
