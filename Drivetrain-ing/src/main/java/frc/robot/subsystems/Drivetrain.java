@@ -36,6 +36,7 @@ public class Drivetrain extends SubsystemBase {
 
   private NetworkTable m_table = NetworkTableInstance.getDefault().getTable("limelight");
   public NetworkTableEntry tx = m_table.getEntry("tx");
+  public NetworkTableEntry tl = m_table.getEntry("tl");
 
   
   public Drivetrain() {
@@ -97,7 +98,13 @@ public class Drivetrain extends SubsystemBase {
     // tankDrive(rotation, -rotation);
     arcadeDrive(0, -rotation);
   }
+  public PIDController m_LpidController = new PIDController(0.1, 0, 0);
     public void follow(){
+      double l = tl.getDouble(0);
 
+      if (l>10){
+        double speed = m_LpidController.calculate(l, 10);
+        arcadeDrive(speed*.1,0);
+      }
     }
 }
