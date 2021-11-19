@@ -89,11 +89,15 @@ public class Drivetrain extends SubsystemBase {
     // System.out.println(m_leftEncoder.getRate());
     return m_leftEncoder.getRate();
   }
-  public PIDController m_VpidController = new PIDController(0.7, 0, 0);
+  public PIDController m_VpidController = new PIDController(0.05, 0, 0);
   public void VisionAlign(){
     double x = tx.getDouble(0.0);
-    double rotation = m_VpidController.calculate(x, 0);
+    boolean isPid = true;
+    double rotation = isPid ? m_VpidController.calculate(x, 0) : x*.001;
     // tankDrive(rotation, -rotation);
-    arcadeDrive(0, rotation);
+    arcadeDrive(0, -rotation);
   }
+    public void follow(){
+
+    }
 }
